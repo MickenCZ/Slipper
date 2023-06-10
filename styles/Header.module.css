@@ -1,0 +1,70 @@
+#header {
+  display: grid;
+  grid-template-columns: 1fr repeat(1, auto) 1fr;
+  grid-column-gap: 5px;
+  justify-items: center;
+  padding-top:20px;
+}
+/*Layout done through solution 5 of this article https://stackoverflow.com/questions/38948102/center-one-and-right-left-align-other-flexbox-element
+It allows the design where the name and logo is centered and button is on the right. Requires margin-left:auto on the button*/
+#logoContainer {
+  grid-column-start: 2;
+  margin-top:-5px;
+}
+.loginButton {
+  margin-left: auto;
+  
+  display: flex;
+  align-items: center;
+  background-color: #1a73e8;
+  padding:0px 20px;
+  border:none;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right:30px;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  text-decoration: none;
+}
+.loginButton:hover {
+  background-color: #0062cc;
+}
+.loginButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.5);
+  transition: 0.1s;
+}
+
+.signOutButton {
+  margin-left: auto;
+  
+  display: flex;
+  align-items: center;
+  background-color: #db3747;
+  padding:0px 20px;
+  border:none;
+  border-radius: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right:30px;
+}
+
+.signOutButton:hover {
+  background-color: #b41f2e;
+}
+
+.signOutButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(193, 46, 60, 0.5);
+  transition: 0.1s;
+}
+
+#name {
+  margin-left:10px;
+}
+
+#logoContainer {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

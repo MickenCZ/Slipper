@@ -1,0 +1,36 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color:white;
+}
+
+#main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+#head {
+  width: 100vw;
+  position: fixed;
+}
+
+#body {
+  display: flex;
+  margin-top:116px;
+}
+
+/*
+Sign in box in /sign-in
+*/
+.cl-rootBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
