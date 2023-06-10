@@ -1,0 +1,78 @@
+#main {
+  background-color: black;
+}
+
+#head {
+  width: 100vw;
+  position: fixed;
+}
+
+#bodySection {
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  width: 100vw;
+  border: 1px solid #343434;
+  height: calc(100vh - 115px);
+  margin-top:115px;
+}
+
+#info {
+  height: 185px;
+  background: linear-gradient(to bottom, rgb(150,200,250) 50%, black 50%);
+  border-bottom: 1px solid #343434;
+}
+
+#pictureContainer {
+  display: flex;
+  align-items: center;
+  height:100%;
+}
+
+#pfp {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  margin-left:50px;
+  border:4px black solid;
+}
+
+#stats {
+  margin-top:-40px;
+  margin-left:43px;
+  display: flex;
+  align-items: center;
+}
+
+#atUserName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#followers, #follows {
+  margin-left:18px;
+  color:rgb(200 210 225)
+}
+
+#followButton {
+    margin-left: auto;
+    background-color: #1a73e8;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 30px;
+    margin-top:-35px;
+}
+
+#followButton:hover {
+  background-color: #0062cc;
+}
+
+#followButton:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.5);
+  transition: 0.1s;
+}
