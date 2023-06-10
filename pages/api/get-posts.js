@@ -16,3 +16,5 @@ export const config = {
     externalResolver: true,
   },
 }
+
+//get Posts data from DB

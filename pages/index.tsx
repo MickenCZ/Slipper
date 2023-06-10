@@ -40,7 +40,7 @@ function Home(props:{posts: PostT[]}) {
 export default Home
 
 export async function getServerSideProps() {
-  const response = await fetch("http://localhost:3000/api/get-posts")
+  const response = await fetch(process.env.URL + "/api/get-posts")
   const postsData = await response.json()
   return {
     props: {

@@ -21,7 +21,7 @@ type PostT = {
 function Posts(props:{posts: PostT[]}) {
   const { user } = useUser()
   const [postMessage, setPostMessage] = useState("")
-  const { posts } = props
+  const [posts, setPosts] = useState<PostT[]>(props.posts)
 
   return (
     <section id={styles.posts}>
@@ -50,7 +50,7 @@ function Posts(props:{posts: PostT[]}) {
                 })
                 return false
               }
-              fetch(process.env.URL + "/createPost", {
+              fetch("/api/createPost", {
                 method:"POST",
                 mode:"cors",
                 cache:"no-cache",
@@ -67,10 +67,8 @@ function Posts(props:{posts: PostT[]}) {
                 }),
               })
               .catch(err => console.error(err))
-                
-              }
-
-          }>Post</button>
+              location.reload();
+              }}>Post</button>
         </SignedIn>
       </div>
 
