@@ -33,7 +33,7 @@ function Posts(props:{posts: PostT[]}) {
           <button id={styles.post} className={styles.disabled} >Post</button>
         </SignedOut>
         <SignedIn>
-          <Image id={styles.userIcon} alt="Your profile picture" src={user?.imageUrl} width={60} height={60} ></Image>
+          <Image id={styles.userIcon} alt="Your profile picture" src={user?.imageUrl!} width={60} height={60} ></Image>
           <input type="text" placeholder="What's happening?" id={styles.postInput} onChange={(e) => {setPostMessage(e.target.value)}} />
           <button id={styles.post} type="submit" onClick={
 
