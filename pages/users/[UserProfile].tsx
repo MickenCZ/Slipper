@@ -12,8 +12,8 @@ type UserT = {
   ID: number,
   pfp: string,
   name: string,
-  followers: {followers: string[]},
-  follows: {follows: string[]},
+  followers: string[],
+  follows: string[],
 }
 
 type PostT = {
@@ -57,8 +57,8 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
               <div id={styles.atUserName}>
                 {user.name}
               </div>
-              <div id={styles.followers}>{user.followers.followers.length} Followers</div>
-              <div id={styles.follows}>{user.follows.follows.length} Follows</div>
+              <div id={styles.followers}>{user.followers.length} Followers</div>
+              <div id={styles.follows}>{user.follows.length} Follows</div>
               <button id={styles.followButton} onClick={() => {
                 //router query.followers += clerkuser
                 //clekruser.follows += router query
