@@ -3,6 +3,8 @@ import styles from "../../styles/UserProfile.module.css"
 import Header from "../../components/Header"
 import Navbar from "../../components/Navbar"
 import Image from "next/image"
+import Head from "next/head"
+import Post from "../../components/Post"
 import { ClerkProvider } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 
@@ -14,20 +16,31 @@ type UserT = {
   follows: {follows: string[]},
 }
 
-function UserProfile(props: {users: UserT[]}) {
+type PostT = {
+  ID: number,
+  pfpURL: string,
+  userName: string,
+  timePosted: number,
+  messageContent: string,
+  likes: number,
+  comments: number,
+}
+
+function UserProfile(props: {users: UserT[], posts:PostT[]}) {
   if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
   }
   const clerkPubKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
   const router = useRouter()
-  const { users } = props 
+  const { users, posts } = props 
   const username = router.query.UserProfile
   const userIndex = users.findIndex(user => user.name == username)
   if (userIndex == -1) {return <div style={{color:"black"}}>Error: User does not exist</div>}
   const user = users[userIndex]
 
   return (<ClerkProvider publishableKey={clerkPubKey}>
+    <Head><title>{user.name} - Slipper</title></Head>
     <main id={styles.main}>
       <section id={styles.head}>
         <Header />
@@ -47,7 +60,12 @@ function UserProfile(props: {users: UserT[]}) {
               <div id={styles.follows}>{user.follows.follows.length} Follows</div>
               <button id={styles.followButton}>Follow</button>
             </div>
+
           </div>
+        
+          {posts.map((post: PostT) => {
+      return <Post username={post.userName} timestamp={post.timePosted} messageContent={post.messageContent} likes={post.likes} comments={post.comments} pfpURL={post.pfpURL} key={post.ID} />
+     })} 
         </div>
       </section>
     </main>
@@ -56,12 +74,28 @@ function UserProfile(props: {users: UserT[]}) {
 
 export default UserProfile
 
-export async function getServerSideProps() {
-  const response = await fetch(process.env.URL + "/api/get-users")
-  const usersData = await response.json()
+export async function getServerSideProps(context:any) {
+  const usersResponse = await fetch(process.env.URL + "/api/get-users")
+  const usersData = await usersResponse.json()
+  const postsResponse = await fetch(process.env.URL + "/api/get-user-posts", {
+    method:"POST",
+    mode:"cors",
+    cache:"no-cache",
+    credentials:"same-origin",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    redirect:"follow",
+    referrerPolicy:"no-referrer",
+    body: JSON.stringify({
+      username: context.query.UserProfile,
+    }),
+  })
+  const postsData = await postsResponse.json()
   return {
     props: {
-      users: usersData.users
+      users: usersData.users,
+      posts: postsData.posts,
     }
   }
 }
