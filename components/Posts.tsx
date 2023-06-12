@@ -50,7 +50,7 @@ function Posts(props:{posts: PostT[]}) {
                 })
                 return false
               }
-              fetch("/api/createPost", {
+              fetch(process.env.URL + "/api/createPost", {
                 method:"POST",
                 mode:"cors",
                 cache:"no-cache",
