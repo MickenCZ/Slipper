@@ -26,6 +26,7 @@ type PostT = {
   comments: number,
 }
 
+
 function UserProfile(props: {users: UserT[], posts:PostT[]}) {
   if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
@@ -58,7 +59,10 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
               </div>
               <div id={styles.followers}>{user.followers.followers.length} Followers</div>
               <div id={styles.follows}>{user.follows.follows.length} Follows</div>
-              <button id={styles.followButton}>Follow</button>
+              <button id={styles.followButton} onClick={() => {
+                //router query.followers += clerkuser
+                //clekruser.follows += router query
+              }}>Follow</button>
             </div>
 
           </div>
