@@ -69,7 +69,7 @@ function Posts(props:{posts: PostT[]}) {
                 }),
               })
               .catch(err => console.error(err))
-              //location.reload();
+              location.reload();
               }}>Post</button>
         </SignedIn>
       </div>
