@@ -7,6 +7,8 @@ import toast, { Toaster } from "react-hot-toast"
 import Image from "next/image";
 import anonymous from "../public/anonymous.png"
 
+const URL = "https://slipperapp.vercel.app"
+
 type PostT = {
   ID: number,
   pfpURL: string,
@@ -50,7 +52,7 @@ function Posts(props:{posts: PostT[]}) {
                 })
                 return false
               }
-              fetch(process.env.URL + "/api/createPost", {
+              fetch(URL + "/api/createPost", {
                 method:"POST",
                 mode:"cors",
                 cache:"no-cache",
@@ -67,7 +69,7 @@ function Posts(props:{posts: PostT[]}) {
                 }),
               })
               .catch(err => console.error(err))
-              location.reload();
+              //location.reload();
               }}>Post</button>
         </SignedIn>
       </div>
