@@ -15,7 +15,6 @@
 #content {
   width: 100vw;
   border: 1px solid #343434;
-  height: calc(100vh - 115px);
   margin-top:115px;
 }
 
