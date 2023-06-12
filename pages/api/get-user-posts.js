@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     await validateBody(req, res)
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
+      res.status(400).json({ errors: errors.array() })
     }
 
     const { username } = req.body
@@ -26,13 +26,5 @@ export default async function handler(req, res) {
     })
   })
 }
-    
-
-export const config = {
-  api: {
-    externalResolver: true,
-  },
-}
-
 
 //get all posts from one user from DB

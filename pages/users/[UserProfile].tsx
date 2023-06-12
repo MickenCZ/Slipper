@@ -41,7 +41,7 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
   const user = users[userIndex]
 
   return (<ClerkProvider publishableKey={clerkPubKey}>
-    <Head><title>{user.name} - Slipper</title></Head>
+    <Head><title>{user.name + " - Slipper"}</title></Head>
     <main id={styles.main}>
       <section id={styles.head}>
         <Header />
