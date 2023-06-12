@@ -8,10 +8,10 @@ function Header() {
   const { signOut } = useClerk()
 
   return (<header id={styles.header}>
-    <div id={styles.logoContainer}>
+    <Link href={"/"} id={styles.logoContainer}>
       <Image src={logo} alt="Slipper logo" id={styles.img} width={50} height={50} />
       <h1 id={styles.name}>Slipper</h1>
-    </div>
+    </Link>
     <SignedOut>
       <Link href="/sign-in" className={styles.loginButton}>Login</Link>
     </SignedOut>

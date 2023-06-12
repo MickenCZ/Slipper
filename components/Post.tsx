@@ -1,5 +1,6 @@
 import styles from "../styles/Post.module.css"
 import Image from "next/image"
+import Link from "next/link"
 /* eslint-disable jsx-a11y/img-redundant-alt */
 
 function Post(props: {username:string, pfpURL:string, timestamp:number, messageContent:string, likes:number, comments:number}) {
@@ -8,7 +9,7 @@ function Post(props: {username:string, pfpURL:string, timestamp:number, messageC
   return (<div className={styles.postContainer}>
     <Image alt="Message user picture" src={pfpURL} width={60} height={60} className={styles.postPicture} ></Image>
     <div className={styles.messageInfo}>
-      <div className={styles.nameDate}>{username} - {daysSincePost} days ago</div>
+      <Link href={"/users/" + username} className={styles.nameDate}>{username} - {daysSincePost} days ago</Link>
       <div className={styles.message}>{messageContent}</div>
     </div>
     <div className={styles.recCom}>
