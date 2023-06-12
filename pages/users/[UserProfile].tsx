@@ -40,3 +40,13 @@ function UserProfile() {
 }
 
 export default UserProfile
+
+export async function getServerSideProps() {
+  const response = await fetch(process.env.URL + "")
+  const usersData = await response.json()
+  return {
+    props: {
+      users: usersData.users
+    }
+  }
+}
