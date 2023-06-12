@@ -21,7 +21,7 @@ type PostT = {
 function Posts(props:{posts: PostT[]}) {
   const { user } = useUser()
   const [postMessage, setPostMessage] = useState("")
-  const [posts, setPosts] = useState<PostT[]>(props.posts)
+  const [posts, setPosts] = useState<PostT[]>(props.posts.reverse())
 
   return (
     <section id={styles.posts}>

@@ -1,9 +1,9 @@
 #posts {
   border: 1px solid #343434;
   width: 100%;
-  height: calc(100vh - 116px);
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 
 #inputContainer {
