@@ -7,8 +7,6 @@ import toast, { Toaster } from "react-hot-toast"
 import Image from "next/image";
 import anonymous from "../public/anonymous.png"
 
-const URL = "https://slipperapp.vercel.app"
-
 type PostT = {
   ID: number,
   pfpURL: string,
@@ -52,7 +50,7 @@ function Posts(props:{posts: PostT[]}) {
                 })
                 return false
               }
-              fetch(URL + "/api/createPost", {
+              fetch("/api/createPost", {
                 method:"POST",
                 mode:"cors",
                 cache:"no-cache",
