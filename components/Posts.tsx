@@ -2,7 +2,7 @@
 import styles from "../styles/Posts.module.css"
 import Post from "./Post"
 import { SignedIn, SignedOut, useUser } from "@clerk/nextjs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast"
 import Image from "next/image";
 import anonymous from "../public/anonymous.png"
@@ -21,7 +21,7 @@ type PostT = {
 function Posts(props:{posts: PostT[]}) {
   const { user } = useUser()
   const [postMessage, setPostMessage] = useState("")
-  const [posts, setPosts] = useState<PostT[]>(props.posts.reverse())
+  const [posts, setPosts] = useState<PostT[]>(props.posts.slice(0).reverse())
 
   return (
     <section id={styles.posts}>
