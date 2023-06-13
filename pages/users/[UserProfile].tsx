@@ -29,7 +29,8 @@ type PostT = {
 function UserProfile(props: {users: UserT[], posts:PostT[]}) {
 
   const router = useRouter()
-  const { users, posts } = props 
+  let { users, posts } = props 
+  posts = props.posts.slice(0).reverse()
   const username = router.query.UserProfile
   const userIndex = users.findIndex(user => user.name == username)
   if (userIndex == -1) {return <div style={{color:"black"}}>Error: User does not exist</div>}
@@ -51,13 +52,7 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
             <div id={styles.stats}>
               <div id={styles.atUserName}>
                 {user.name}
-              </div>
-              <div id={styles.followers}>{user.followers.length} Followers</div>
-              <div id={styles.follows}>{user.follows.length} Follows</div>
-              <button id={styles.followButton} onClick={() => {
-                //router query.followers += clerkuser
-                //clekruser.follows += router query
-              }}>Follow</button>
+              </div>  
             </div>
 
           </div>
