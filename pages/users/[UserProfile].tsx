@@ -5,7 +5,6 @@ import Navbar from "../../components/Navbar"
 import Image from "next/image"
 import Head from "next/head"
 import Post from "../../components/Post"
-import { ClerkProvider } from "@clerk/nextjs";
 import { useRouter } from "next/router";
 
 type UserT = {
@@ -28,10 +27,6 @@ type PostT = {
 
 
 function UserProfile(props: {users: UserT[], posts:PostT[]}) {
-  if (!process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
-    throw new Error("Missing Publishable Key")
-  }
-  const clerkPubKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
   const router = useRouter()
   const { users, posts } = props 
@@ -40,7 +35,7 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
   if (userIndex == -1) {return <div style={{color:"black"}}>Error: User does not exist</div>}
   const user = users[userIndex]
 
-  return (<ClerkProvider publishableKey={clerkPubKey}>
+  return (<>
     <Head><title>{user.name + " - Slipper"}</title></Head>
     <main id={styles.main}>
       <section id={styles.head}>
@@ -73,7 +68,7 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
         </div>
       </section>
     </main>
-  </ClerkProvider>)
+    </>)
 }
 
 export default UserProfile
