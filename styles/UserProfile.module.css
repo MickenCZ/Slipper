@@ -5,6 +5,7 @@
 #head {
   width: 100vw;
   position: fixed;
+  background-color: black;
 }
 
 #bodySection {
