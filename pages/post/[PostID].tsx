@@ -75,7 +75,7 @@ function PostPage(props:{posts: PostT[], comments: CommentT[]}) {
                 })
                 return false
               }
-              fetch("/api/createComment", {
+              fetch("/api/create-comment", {
                 method:"POST",
                 mode:"cors",
                 cache:"no-cache",
