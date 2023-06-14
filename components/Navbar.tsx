@@ -7,7 +7,7 @@ function Navbar() {
       <div className={styles.underLine}></div>
     </div>
     <div className={styles.navContainer}>
-      <div>Following</div>
+      <div>Liked</div>
       <div className={styles.underLine}></div>
     </div>
   </nav>

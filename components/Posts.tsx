@@ -73,7 +73,7 @@ function Posts(props:{posts: PostT[]}) {
       </div>
 
      {posts?.map((post: PostT) => {
-      return <Post username={post.userName} timestamp={post.timePosted} messageContent={post.messageContent} likes={post.likes} comments={post.comments} pfpURL={post.pfpURL} key={post.ID} />
+      return <Post username={post.userName} timestamp={post.timePosted} messageContent={post.messageContent} likes={post.likes} comments={post.comments} pfpURL={post.pfpURL} key={post.ID} ID={post.ID} displayComments={true} />
      })} 
     </section>
   )
