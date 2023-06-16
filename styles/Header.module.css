@@ -68,3 +68,22 @@ It allows the design where the name and logo is centered and button is on the ri
   align-items: center;
   display: flex;
 }
+
+@media only screen and (max-width: 450px) {
+  #header {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #logoContainer {
+    margin-left:30px;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  #logoContainer {
+    margin-left:10px;
+  }
+  .signOutButton {
+    margin-right:10px;
+  }
+}

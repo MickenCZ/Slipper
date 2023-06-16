@@ -8,6 +8,7 @@ export default function Document() {
         <link rel="icon" href="/logo.png" />
         <meta name="author" content="MickenCZ" />
         <meta name="keywords" content="social media app slipper" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
       <body>
         <Main />
