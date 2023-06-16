@@ -23,10 +23,7 @@ export default async function handler(req, res) {
     const connection = mysql.createConnection(process.env.DATABASE_URL)
     connection.query("INSERT INTO `comments` (`comment_id`, `pfpURL`, `userName`, `timePosted`, `messageContent`, `likes`, `post_id`) VALUES (NULL, '"+ pfpURL +"', '"+   userName +"', '"+ Date.now() +"', '"+ messageContent +"', '0', '"+PostID+"')", (error, results, fields) => {
     if (error) throw error;
-    })
-    connection.query("UPDATE posts SET comments = comments + 1 WHERE ID = " + PostID, (error, results, fields) => {
-      if (error) throw error;
-      })
+  })
 
   connection.end()
   res.status(201).send("Success")
