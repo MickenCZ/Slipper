@@ -1,14 +1,15 @@
 import styles from "../styles/Navbar.module.css"
+import Link from "next/link"
 
-function Navbar() {
+function Navbar(props: {isPosts: boolean, isCommented : boolean}) {
   return <nav id={styles.nav}>
     <div className={styles.navContainer}>
-      <div>Posts</div>
-      <div className={styles.underLine}></div>
+      <Link href="/" >Posts</Link>
+      {props.isPosts ? <div className={styles.underLine}></div> : <div className={styles.underLineDeactivated}></div>}
     </div>
     <div className={styles.navContainer}>
-      <div>Liked</div>
-      <div className={styles.underLine}></div>
+      <Link href="/commented" >Commented</Link>
+      {props.isCommented ? <div className={styles.underLine}></div> : <div className={styles.underLineDeactivated}></div>}
     </div>
   </nav>
 }

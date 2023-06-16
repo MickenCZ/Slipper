@@ -41,7 +41,7 @@ function UserProfile(props: {users: UserT[], posts:PostT[]}) {
     <main id={styles.main}>
       <section id={styles.head}>
         <Header />
-        <Navbar />
+        <Navbar isCommented={false} isPosts={false}  />
       </section>
       <section id={styles.bodySection}>
         <div id={styles.content}>

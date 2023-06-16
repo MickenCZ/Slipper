@@ -47,7 +47,7 @@ function PostPage(props:{posts: PostT[], comments: CommentT[]}) {
   <Head><title>Slipper</title></Head>
     <section id={styles.head}>
       <Header />
-      <Navbar />
+      <Navbar isCommented={false} isPosts={false}  />
     </section>
     {thisPost && <div id={styles.postContainer}><Post username={thisPost.userName} timestamp={thisPost.timePosted} messageContent={thisPost.messageContent} likes={thisPost.likes} comments={thisPost.comments} pfpURL={thisPost.pfpURL} key={thisPost.ID} ID={thisPost.ID} displayComments={false} /></div>}
     <div><Toaster/></div> {/*Tag for validation errors*/}

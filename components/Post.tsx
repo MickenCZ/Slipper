@@ -13,7 +13,6 @@ function Post(props: {username:string, pfpURL:string, timestamp:number, messageC
       <div className={styles.message}>{messageContent}</div>
     </div>
     <div className={styles.recCom}>
-      <div className={styles.reaction}>{likes} Hearts</div>
       {displayComments && <Link href={"/post/" + ID} className={styles.comments}>{comments} comments</Link>}
     </div>
   </div>)

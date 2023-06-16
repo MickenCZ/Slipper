@@ -21,7 +21,7 @@ function Home(props:{posts: PostT[]}) {
     <main id="main">
   <section id="head">
     <Header />
-    <Navbar />
+    <Navbar isCommented={false} isPosts={true} />
   </section>
   <section id="body">
     <Posts posts={posts} />
